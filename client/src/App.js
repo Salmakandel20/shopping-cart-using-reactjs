@@ -1,11 +1,12 @@
 import Header from "./componets/Header/Header";
+import Footer from "./componets/footer/Footer";
 
 function App() {
   return (
     <div className="layout">
       <Header/>
       <main>main</main>
-      <footer>footer</footer>
+      <Footer/>
     </div>
   );
 }

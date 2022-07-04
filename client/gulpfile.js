@@ -3,5 +3,8 @@ const gpsass=require("gulp-sass")
 const sass=gpsass(require("sass"))
 
 gulp.task("sass",async function(){
-    gulp.src("src/componets/**/*.scss").pipe(sass()).pipe(gulp.dest("src/css"))
+    gulp.watch("src/componets/**/*.scss",async function(){
+        gulp.src("src/componets/**/*.scss").pipe(sass()).pipe(gulp.dest("src/css"))
+
+    })
 })
