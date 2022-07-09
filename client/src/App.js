@@ -2,7 +2,7 @@ import React ,{useState} from "react";
 import Header from "./componets/Header/Header";
 import Footer from "./componets/footer/Footer";
 import Product from "./componets/Products/Product";
-
+import Filter from "./componets/Filter/Filter"
 // import { words } from "./words";
 import data from "./data.json"
 function App() {
@@ -14,9 +14,7 @@ function App() {
       <main>
         <div className="wrapper">
         <Product products={products}/>
-          <div className="filter-wrapper">
-             filter
-          </div>
+         <Filter/>
          </div>
         </main>
       <Footer/>
