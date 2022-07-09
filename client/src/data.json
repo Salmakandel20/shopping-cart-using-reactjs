@@ -12,7 +12,7 @@
     {
         "id":"id2",
         "title":"product2",
-        "imageurl":"/images/p12.jfif",
+        "imageurl":"/images/p2.jfif",
         "disc":"this is product 2",
         "price":40,
         "sizes":["S","L","M"]
