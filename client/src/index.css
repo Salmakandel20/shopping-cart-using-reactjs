@@ -35,11 +35,14 @@ main{
 footer{
   grid-area: footer;
 }
-header,footer{
-  background-color: #2a5ea5;
-  color: #fff;
+.wrapper{
   display: flex;
-  justify-content: center;
-  align-items: center;
-font-size: 20px;
+  justify-content: space-between;
+  padding: 30px;
+}
+.product-wrapper{
+  width: 65%;
+}
+.filter-wrapper{
+  width: 30%;
 }
