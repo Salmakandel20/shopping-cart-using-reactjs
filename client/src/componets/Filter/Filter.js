@@ -11,7 +11,7 @@ export default function Filter(props) {
         </div>
         <div className='filter-by-size'>
             <span>Filter</span>
-            <select className='filter-select'>
+            <select value={props.size} className='filter-select' onChange={props.handleFilterBySize}>
                 <option value="ALL">ALL</option>
                 <option value="S">S</option>
                 <option value="X">X</option>
@@ -22,10 +22,10 @@ export default function Filter(props) {
 
             </select>
             <span>Order</span>
-            <select className='filter-select'>
+            <select  value={props.order} className='filter-select'  onChange={props.handleFilterByOrder}>
                 <option value="latest">Latest</option>
-                <option value="lowest">Lowest</option>
-                <option value="heighest">Heighest</option>
+                <option value="Lowest">Lowest</option>
+                <option value="Heighest">Heighest</option>
                 </select>
         </div>
    </div>
