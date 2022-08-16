@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "../../css/Cart/Cart.css";
 import Product from '../Products/Product';
 import CheckoutForm from '../Checkoutform/CheckoutForm';
+import Bounce from "react-reveal/Bounce"
 export default function Cart(props) {
   const [showform,setShowform]=useState(false)
   const [prevalue,setPrevalue]=useState("")
@@ -14,6 +15,8 @@ setPrevalue((prevalue)=>({...prevalue,[e.target.name]:e.target.value}))
   return (
    <div className='cart-wrapper'>
     <div className='cart-title'>{props.cartItems.length? <p>There is {props.cartItems.length} products in cart </p>: "Empty cart"}</div>
+  <Bounce bottom cascade>
+  
     <div className='cart-items'  >
         {
           props.cartItems.map(item=> (
@@ -33,6 +36,7 @@ setPrevalue((prevalue)=>({...prevalue,[e.target.name]:e.target.value}))
         ))}
        
     </div>
+    </Bounce>
     {
   props.cartItems.length!==0 &&(
 <div className='cart-footer'>

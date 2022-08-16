@@ -1,6 +1,6 @@
-// import { StyleSheet, Text, View } from 'react-native'
 import React,{useState} from 'react'
 import "../../css/Products/Product.css"
+import Bounce from "react-reveal/Bounce"
 import ProductModal from "./productModal"
 function Product(props) {
     const [product,setProduct]=useState("");
@@ -11,6 +11,7 @@ function Product(props) {
         setProduct(false)
     }
   return (
+    <Bounce left cascade>
     <div className="product-wrapper">
     { props.products.map(product => (
         <div className="product-item" key={product.id}>
@@ -29,6 +30,7 @@ function Product(props) {
     ))}
 <ProductModal product={product} closeModal={closeProduct}/>   
  </div>
+ </Bounce>
   )
 }
 
