@@ -1,8 +1,10 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import "../../css/Products/Product.css"
 import Bounce from "react-reveal/Bounce"
 import ProductModal from "./productModal"
-function Product(props) {
+import {connect} from "react-redux"
+import { FetchProducts } from '../../store/actions/Products'
+function Products(props) {
     const [product,setProduct]=useState("");
     const openModal=(product)=>{
         setProduct(product)
@@ -10,10 +12,14 @@ function Product(props) {
     const closeProduct=()=>{
         setProduct(false)
     }
+  useEffect(()=>{
+     props.FetchProducts()
+  },[])
+
   return (
     <Bounce left cascade>
     <div className="product-wrapper">
-    { props.products.map(product => (
+    { props.products && props.products.length?  props.products.map(product => (
         <div className="product-item" key={product.id}>
           <a href="#"  onClick={()=>openModal(product)}>
              <img src={product.imageurl} alt={product.title}></img>
@@ -27,11 +33,15 @@ function Product(props) {
         </div>
 
 
-    ))}
+    )):"loading"}
 <ProductModal product={product} closeModal={closeProduct}/>   
  </div>
  </Bounce>
   )
 }
 
-export default Product
+export default connect((state)=>{
+  return{
+    products:state.products.products
+  }
+},{FetchProducts})(Products)

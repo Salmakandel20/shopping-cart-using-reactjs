@@ -41,7 +41,7 @@ setPrevalue((prevalue)=>({...prevalue,[e.target.name]:e.target.value}))
   props.cartItems.length!==0 &&(
 <div className='cart-footer'>
     <div className='total'>
-      total:${props.cartItems.reduce((acc,p)=>{return acc+p.price},0)}
+      total:${props.cartItems.reduce((acc,p)=>{return acc+(p.price*p.qty)},0)}
     </div>
     <button onClick={()=>{setShowform(true)}} >Select Products</button>
     </div>
