@@ -56,7 +56,7 @@ function App() {
     const cartItemClone=[...cartItems];
     let isProductExist=false
     cartItemClone.forEach(p=>{
-      if(p.id==product.id){
+      if(p._id==product._id){
         p.qty++
         isProductExist=true
       }
@@ -65,6 +65,8 @@ function App() {
       cartItemClone.push({...product,qty:1})
     }
     setCartItems(cartItemClone)
+    console.log(product.id)
+    console.log(cartItemClone)
   }
   useEffect(()=>{localStorage.setItem("cartItems",JSON.stringify(cartItems))},[cartItems])
    const removeCart=(product)=>{
