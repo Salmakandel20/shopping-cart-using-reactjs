@@ -17,10 +17,8 @@ function App() {
     setSize(e.target.value)
     if (e.target.value=="ALL"){
       setProducts(data)
-      // console.log(data)
     }
     else{
-      console.log(e.target.value)
       let productClons=data
       // console.log(typeof (productClons))
       let newProducts=productClons.filter(p=> p.sizes.indexOf(e.target.value) != -1 ) 
@@ -60,6 +58,7 @@ function App() {
         p.qty++
         isProductExist=true
       }
+
     })
     if(!isProductExist){
       cartItemClone.push({...product,qty:1})
