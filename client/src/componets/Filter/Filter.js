@@ -1,19 +1,22 @@
 import React from 'react'
 import "../../css/Filter/Filter.css"
 import Flip from "react-reveal/Flip"
-export default function Filter(props) {
+import { connect } from 'react-redux'
+import { filteredSize,filteredSort } from '../../store/actions/Products'
+
+ function Filter(props) {
   return (
     <Flip left >
-    <div className="filter-wrapper">
+      {props.filteredProducts&& <div className="filter-wrapper">
        <h2 className='filter-title'>
         Filter
         </h2>
         <div className='num-of-ptduct'>
-            num of product : 4
+            Number Of Products : {props.filteredProducts.length}
         </div>
         <div className='filter-by-size'>
             <span>Filter</span>
-            <select value={props.size} className='filter-select' onChange={props.handleFilterBySize}>
+            <select value={props.size} className='filter-select' onChange={(e)=>props.filteredSize(props.products,e.target.value)}>
                 <option value="ALL">ALL</option>
                 <option value="S">S</option>
                 <option value="X">X</option>
@@ -24,13 +27,27 @@ export default function Filter(props) {
 
             </select>
             <span>Order</span>
-            <select  value={props.order} className='filter-select'  onChange={props.handleFilterByOrder}>
+            <select  value={props.sort} className='filter-select'  onChange={(e)=>props.filteredSort(props.filteredProducts,e.target.value)}>
                 <option value="latest">Latest</option>
                 <option value="Lowest">Lowest</option>
                 <option value="Heighest">Heighest</option>
                 </select>
         </div>
    </div>
+      }
+    
    </Flip>
   )
+
 }
+export default connect((state)=>{
+  return{
+  size:state.products.size,
+  sort:state.products.sort,
+  products:state.products.products,
+  filteredProducts:state.products.filterProducts
+  }
+ 
+
+},
+  {filteredSize,filteredSort})(Filter)
