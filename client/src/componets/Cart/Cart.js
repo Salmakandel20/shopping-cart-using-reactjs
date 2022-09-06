@@ -45,7 +45,7 @@ setPrevalue((prevalue)=>({...prevalue,[e.target.name]:e.target.value}))
         <tr>
           <td>Total:</td>
           <td>{props.cartItems.reduce((a,p)=>{
-            return a+p.price
+            return a+p.price*p.qty
           },0)}</td>
         </tr>
         <tr>
