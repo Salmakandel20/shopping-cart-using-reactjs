@@ -50,24 +50,24 @@ function App() {
   })
     setProducts(newProducts)
   }
-  const addTocart=(product)=>{
-    const cartItemClone=[...cartItems];
-    let isProductExist=false
-    cartItemClone.forEach(p=>{
-      if(p._id==product._id){
-        p.qty++
-        isProductExist=true
-      }
+  // const addTocart=(product)=>{
+  //   const cartItemClone=[...cartItems];
+  //   let isProductExist=false
+  //   cartItemClone.forEach(p=>{
+  //     if(p._id==product._id){
+  //       p.qty++
+  //       isProductExist=true
+  //     }
 
-    })
-    if(!isProductExist){
-      cartItemClone.push({...product,qty:1})
-    }
-    setCartItems(cartItemClone)
-    console.log(product.id)
-    console.log(cartItemClone)
-  }
-  useEffect(()=>{localStorage.setItem("cartItems",JSON.stringify(cartItems))},[cartItems])
+  //   })
+  //   if(!isProductExist){
+  //     cartItemClone.push({...product,qty:1})
+  //   }
+  //   setCartItems(cartItemClone)
+  //   // console.log(product.id)
+  //   // console.log(cartItemClone)
+  // }
+  // useEffect(()=>{localStorage.setItem("cartItems",JSON.stringify(cartItems))},[cartItems])
    const removeCart=(product)=>{
     const cartItemClone=[...cartItems]
      setCartItems(cartItemClone.filter(p=>p.id!=product.id))
@@ -78,7 +78,7 @@ function App() {
       <Header/>
       <main>
         <div className="wrapper">
-        <Product products={products} addTocart={addTocart}/>
+        <Product products={products} />
          <Filter 
          size={size}
          order={sort}
