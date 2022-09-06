@@ -2,14 +2,17 @@ const express=require("express")
 const mongoose=require("mongoose")
 const bodyParser=require("body-parser")
 const  router  = require("./route/routes")
+const orederRouter=require("./route/orderRouts")
+const rundb = require("./config/db")
 const app=express()
 app.use(bodyParser.json())
 app.use("/",router)
-const connectionUrl="mongodb://localhost/react_shopping"
-mongoose.connect(connectionUrl, {useNewUrlParser:true,useUnifiedTopology:true})
-.then((res)=>console.log("connection Done"))
+app.use("/",orederRouter)
 
 
-app.listen(3005,(req,res)=>{
+rundb()
+
+
+app.listen(5000,(req,res)=>{
     console.log("connection to server")
 })

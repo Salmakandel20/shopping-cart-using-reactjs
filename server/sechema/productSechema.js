@@ -3,8 +3,8 @@ const productSechema=new mongoose.Schema
     ({
         id:String,
         title:String,
-        imageUrl:String,
-        desc:String,
+        imageurl:String,
+        disc:String,
         price:Number,
         sizes:[String]
 
