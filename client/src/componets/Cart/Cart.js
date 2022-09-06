@@ -7,6 +7,7 @@ import Modal from "react-modal"
 import { connect } from 'react-redux';
 import {removecart} from "../../store/actions/card"
 import {createOrder,clearOrder} from "../../store/actions/order"
+import { words } from '../../words';
  function Cart(props) {
   const [showform,setShowform]=useState(false)
   const [order,setOrder]=useState(false)
@@ -81,12 +82,12 @@ setPrevalue((prevalue)=>({...prevalue,[e.target.name]:e.target.value}))
             <img src={item.imageurl} alt=""/>
             <div className="cart-info">
                 <div>
-                    <p>title: {item.title}</p>
-                    <p>Qty: {item.qty}</p>
-                    <p>prics: ${item.price}</p>
+                    <p>{words.cartTitle}: {item.title}</p>
+                    <p>{words.cartqty}: {item.qty}</p>
+                    <p>{words.cartprice}: ${item.price}</p>
 
                 </div>
-                <button onClick={()=>props.removecart(item)}>Remove </button>
+                <button onClick={()=>props.removecart(item)}>{words.removebtn} </button>
             </div>
 
         </div>
@@ -98,9 +99,9 @@ setPrevalue((prevalue)=>({...prevalue,[e.target.name]:e.target.value}))
   props.cartItems.length!==0 &&(
 <div className='cart-footer'>
     <div className='total'>
-      total:${props.cartItems.reduce((acc,p)=>{return acc+(p.price*p.qty)},0)}
+      {words.total}:${props.cartItems.reduce((acc,p)=>{return acc+(p.price*p.qty)},0)}
     </div>
-    <button onClick={()=>{setShowform(true)}} >Select Products</button>
+    <button onClick={()=>{setShowform(true)}} >{words.selectedproducts}</button>
     </div>
       )
     }
