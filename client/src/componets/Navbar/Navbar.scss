@@ -1,0 +1,17 @@
+.nav ul{
+    display: flex;
+    background-color: #ddd;
+    list-style: none;
+    padding: 10px 35px;
+    
+  li a{
+    display: block;
+    color:#fff;
+    padding: 5px 10px;
+    margin-right: 5px;
+    text-decoration: none;
+    background-color: gray;
+  }
+  li a.active{
+    background-color: #2a5ea2;
+  }}
